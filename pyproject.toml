@@ -1,0 +1,46 @@
+[tool.poetry]
+name = "testdjango"
+version = "0.1.0"
+description = ""
+authors = ["Fillsogood <jdd05273@naver.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.0.4"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.4.2"
+isort = "^5.13.2"
+mypy = "^1.10.0"
+django-stubs = "^4.2.7"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+profile = "black"
+
+[tool.mypy]
+plugins = ["mypy_django_plugin.main"]
+python_version = 3.12
+strict = true
+
+# mypy 검사 안 할 파일들
+[[tool.mypy.overrides]]
+module = "*.migrations.*"
+ignore_errors = true
+
+[[tool.mypy.overrides]]
+module = "manage"
+ignore_errors = true
+
+# 장고가 가지고 있는 타입 체킹해주는 라이브러리
+[tool.django-stubs]
+django_settings_module = "testdjango.settings"
