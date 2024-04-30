@@ -46,4 +46,4 @@ ignore_errors = true
 
 # 장고가 가지고 있는 타입 체킹해주는 라이브러리
 [tool.django-stubs]
-django_settings_module = "testdjango.settings"
+django_settings_module = "app.settings"
